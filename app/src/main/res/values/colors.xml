@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00AEEE</color>
+    <color name="colorPrimaryDark">#00AEEE</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorNavSelected">@color/colorPrimary</color>
+    <color name="colorNavNormal">#999999</color>
+</resources>
