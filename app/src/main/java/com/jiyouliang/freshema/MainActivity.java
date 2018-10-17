@@ -3,10 +3,12 @@ package com.jiyouliang.freshema;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Toast;
 
 import com.jiyouliang.freshema.view.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavTabClickListener {
 
     private ViewPager mViewPager;
     private NavigationView mNavView;
@@ -26,9 +28,15 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mNavView = (NavigationView) findViewById(R.id.nav_view);
+        mNavView.setOnNavTabClickListener(this);
     }
 
     private void initData() {
-        mNavView.initNavigation(normalResIds, selectedResIds, titls, textColors);
+//        mNavView.initNavigation(normalResIds, selectedResIds, titls, textColors);
+    }
+
+    @Override
+    public void onTabClick(View view, int position) {
+        Toast.makeText(this, "position="+position, Toast.LENGTH_SHORT).show();
     }
 }

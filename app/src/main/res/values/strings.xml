@@ -1,9 +1,4 @@
 <resources>
     <string name="app_name">Freshema</string>
-    <string-array name="nav_titles">
-        <item>首页</item>
-        <item>分类</item>
-        <item>购物车</item>
-        <item>我的</item>
-    </string-array>
+
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NavigationView">
+        <attr name="navTitles" />
+        <attr name="navNormalRes" format="reference" />
+        <attr name="navSelectedRes" format="reference" />
+        <attr name="navTextColors" format="reference" />
+    </declare-styleable>
+</resources>
