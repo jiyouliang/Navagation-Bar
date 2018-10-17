@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Freshema.iml" filepath="$PROJECT_DIR$/Freshema.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/navigation-bar/navigation-bar.iml" filepath="$PROJECT_DIR$/navigation-bar/navigation-bar.iml" />
     </modules>
   </component>
 </project>

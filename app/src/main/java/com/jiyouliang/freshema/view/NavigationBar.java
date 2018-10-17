@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jiyouliang.freshema.R;
 
@@ -17,30 +16,30 @@ import com.jiyouliang.freshema.R;
  * Created by JiYouLiang on 2018/10/16.
  */
 
-public class NavigationView extends LinearLayout {
+public class NavigationBar extends LinearLayout {
     private final static int DEFAULT_TABS_COUNT = 4;
     private int[] mSelectedResIds;
     private int[] mNormalResIds;
     private int[] mTextColors;
     private CharSequence[] mTitles;
-    private OnNavTabClickListener mListener;
+    private OnNavBarClickListener mListener;
 
-    public NavigationView(Context context) {
+    public NavigationBar(Context context) {
         this(context, null, 0);
     }
 
-    public NavigationView(Context context, @Nullable AttributeSet attrs) {
+    public NavigationBar(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public NavigationView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public NavigationBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NavigationView);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NavigationBar);
         //标题
-        CharSequence[] titles = a.getTextArray(R.styleable.NavigationView_navTitles);
+        CharSequence[] titles = a.getTextArray(R.styleable.NavigationBar_navTitles);
         mTitles = titles;
         //未选中图片资源
-        int normalResId = a.getResourceId(R.styleable.NavigationView_navNormalRes, 0);
+        int normalResId = a.getResourceId(R.styleable.NavigationBar_navNormalRes, 0);
         TypedArray normalTypeArray = a.getResources().obtainTypedArray(normalResId);
         int[] normalResIds = new int[normalTypeArray.length()];
         for (int i = 0; i < normalTypeArray.length(); i++) {
@@ -52,7 +51,7 @@ public class NavigationView extends LinearLayout {
 
 
         //选中图片资源
-        int selectedResId = a.getResourceId(R.styleable.NavigationView_navSelectedRes, 0);
+        int selectedResId = a.getResourceId(R.styleable.NavigationBar_navSelectedRes, 0);
         TypedArray setdTypeArray = a.getResources().obtainTypedArray(selectedResId);
         int[] selectedResIds = new int[setdTypeArray.length()];
         for (int i = 0; i < setdTypeArray.length(); i++) {
@@ -63,7 +62,7 @@ public class NavigationView extends LinearLayout {
         mSelectedResIds = selectedResIds;
 
         //文本颜色
-        int colorsResId = a.getResourceId(R.styleable.NavigationView_navTextColors, 0);
+        int colorsResId = a.getResourceId(R.styleable.NavigationBar_navTextColors, 0);
         TypedArray colorsTypeArray = a.getResources().obtainTypedArray(colorsResId);
         int[] textColors = new int[colorsTypeArray.length()];
         for (int i = 0; i < colorsTypeArray.length(); i++) {
@@ -154,7 +153,7 @@ public class NavigationView extends LinearLayout {
             childView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    resetTab();
+                    resetNavbar();
                     int count2 = ((LinearLayout) childView).getChildCount();
                     if (count2 != 2) return;
                     ImageView iv = (ImageView) ((LinearLayout) childView).getChildAt(0);
@@ -164,7 +163,7 @@ public class NavigationView extends LinearLayout {
 
                     //callback
                     if(mListener != null){
-                        mListener.onTabClick(v, index);
+                        mListener.onNavBarClick(v, index);
                     }
                 }
             });
@@ -174,7 +173,7 @@ public class NavigationView extends LinearLayout {
     /**
      * 重置tab背景图片与文字颜色状态
      */
-    private void resetTab() {
+    private void resetNavbar() {
         int count = getChildCount();
         if (count < 0) return;
         for (int i = 0; i < count; i++) {
@@ -189,15 +188,15 @@ public class NavigationView extends LinearLayout {
         }
     }
 
-    public void setOnNavTabClickListener(OnNavTabClickListener listener){
+    public void setOnNavTabClickListener(OnNavBarClickListener listener){
         this.mListener = listener;
     }
 
-    public interface OnNavTabClickListener {
+    public interface OnNavBarClickListener {
         /**
          * @param view     tab view
          * @param position tab所在位置
          */
-        void onTabClick(View view, int position);
+        void onNavBarClick(View view, int position);
     }
 }
