@@ -5,5 +5,7 @@
         <attr name="navNormalRes" format="reference" />
         <attr name="navSelectedRes" format="reference" />
         <attr name="navTextColors" format="reference" />
+        <attr name="navTextSize"/>
+        <attr name="navTextIconSpace" format="dimension|reference" />
     </declare-styleable>
 </resources>

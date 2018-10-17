@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,10 @@ public class NavigationBar extends LinearLayout {
     private int[] mTextColors;
     private CharSequence[] mTitles;
     private OnNavBarClickListener mListener;
+    private final float DEFAULT_TEXT_ICON_SPACE = 6;
+    private final int DEFAULT_TEXT_SIZE = 16;//默认文字大小
+    private int mTextIconSpace;
+    private int mTextSize;
 
     public NavigationBar(Context context) {
         this(context, null, 0);
@@ -32,9 +37,13 @@ public class NavigationBar extends LinearLayout {
     public NavigationBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NavigationBar);
+
+
         //标题
         CharSequence[] titles = a.getTextArray(R.styleable.NavigationBar_navTitles);
         mTitles = titles;
+
+
         //未选中图片资源
         int normalResId = a.getResourceId(R.styleable.NavigationBar_navNormalRes, 0);
         TypedArray normalTypeArray = a.getResources().obtainTypedArray(normalResId);
@@ -42,7 +51,6 @@ public class NavigationBar extends LinearLayout {
         for (int i = 0; i < normalTypeArray.length(); i++) {
             int resId = normalTypeArray.getResourceId(i, 0);
             normalResIds[i] = resId;
-            System.out.println(resId);
         }
         mNormalResIds = normalResIds;
 
@@ -54,7 +62,6 @@ public class NavigationBar extends LinearLayout {
         for (int i = 0; i < setdTypeArray.length(); i++) {
             int resId = setdTypeArray.getResourceId(i, 0);
             selectedResIds[i] = resId;
-            System.out.println(resId);
         }
         mSelectedResIds = selectedResIds;
 
@@ -65,9 +72,15 @@ public class NavigationBar extends LinearLayout {
         for (int i = 0; i < colorsTypeArray.length(); i++) {
             int colorResId = colorsTypeArray.getResourceId(i, 0);
             textColors[i] = colorResId;
-            System.out.println("colorResId=" + colorResId);
         }
         mTextColors = textColors;
+
+        //文字和图片边距
+        mTextIconSpace = a.getDimensionPixelSize(R.styleable.NavigationBar_navTextIconSpace,
+                dp2px(getContext(), DEFAULT_TEXT_ICON_SPACE));
+        //文字大小
+        mTextSize = a.getDimensionPixelSize(R.styleable.NavigationBar_navTextSize, DEFAULT_TEXT_SIZE);
+
 
         colorsTypeArray.recycle();
         normalTypeArray.recycle();
@@ -76,7 +89,6 @@ public class NavigationBar extends LinearLayout {
 
         //init view
         initNavigation(mNormalResIds, mSelectedResIds, mTitles, mTextColors);
-
     }
 
     /**
@@ -91,11 +103,11 @@ public class NavigationBar extends LinearLayout {
         this.mTextColors = textColors;
         removeAllViews();
         int padding = dp2px(getContext(), 6);
-        setPadding(0, padding, 0, 0);
+//        setPadding(0, padding, 0, 0);
 
         setOrientation(LinearLayout.HORIZONTAL);
         LayoutParams p1 = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-        p1.setMargins(0, padding, 0, padding);
+//        p1.setMargins(0, padding, 0, padding);
         setLayoutParams(p1);
         for (int i = 0; i < normalResIds.length; i++) {
             LinearLayout item = new LinearLayout(getContext());
@@ -109,16 +121,17 @@ public class NavigationBar extends LinearLayout {
             ImageView iv = new ImageView(getContext());
             LayoutParams ivP = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             ivP.gravity = Gravity.CENTER;
-            ivP.setMargins(0, padding, 0, 0);
+//            ivP.setMargins(0, padding, 0, 0);
             iv.setLayoutParams(ivP);
             iv.setBackgroundResource(i == 0 ? selectedResIds[0] : normalResIds[i]);
 
             TextView tv = new TextView(getContext());
             tv.setTextColor(getContext().getResources().getColor(textColors[i == 0 ? 1 : 0]));
             tv.setText(titles[i]);
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
 
             LayoutParams tvParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-            tvParams.topMargin = dp2px(getContext(), 6);
+            tvParams.topMargin = mTextIconSpace;
             tvParams.gravity = Gravity.CENTER;
             tv.setLayoutParams(tvParams);
 
@@ -158,7 +171,7 @@ public class NavigationBar extends LinearLayout {
                     tv.setTextColor(getContext().getResources().getColor(mTextColors[1]));
 
                     //callback
-                    if(mListener != null){
+                    if (mListener != null) {
                         mListener.onNavBarClick(v, index);
                     }
                 }
@@ -184,7 +197,7 @@ public class NavigationBar extends LinearLayout {
         }
     }
 
-    public void setOnNavTabClickListener(OnNavBarClickListener listener){
+    public void setOnNavTabClickListener(OnNavBarClickListener listener) {
         this.mListener = listener;
     }
 
