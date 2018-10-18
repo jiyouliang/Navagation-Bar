@@ -145,6 +145,7 @@ public class NavigationBar extends LinearLayout {
         }
 
         setListener();
+        setCurrentItem(0);
     }
 
 
@@ -167,14 +168,6 @@ public class NavigationBar extends LinearLayout {
             childView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    resetNavbar();
-                    int count2 = ((LinearLayout) childView).getChildCount();
-                    if (count2 != 2) return;
-                    ImageView iv = (ImageView) ((LinearLayout) childView).getChildAt(0);
-                    TextView tv = (TextView) ((LinearLayout) childView).getChildAt(1);
-                    iv.setBackgroundResource(mSelectedResIds[index]);
-                    tv.setTextColor(getContext().getResources().getColor(mTextColors[1]));
-
                     //callback
                     if (mListener != null) {
                         mListener.onNavBarClick(v, index);
@@ -198,8 +191,36 @@ public class NavigationBar extends LinearLayout {
             ImageView iv = (ImageView) ((LinearLayout) childView).getChildAt(0);
             TextView tv = (TextView) ((LinearLayout) childView).getChildAt(1);
             iv.setBackgroundResource(mNormalResIds[i]);
-            tv.setTextColor(mTextColors[0]);
+            tv.setTextColor(getContext().getResources().getColor(mTextColors[0]));
         }
+    }
+
+    /**
+     * 设置当前选择item
+     *
+     * @param position item所在位置
+     */
+    public void setCurrentItem(int position) {
+        resetNavbar();
+        selectedItem(position);
+    }
+
+    /**
+     * 选中指定item
+     *
+     * @param position
+     */
+    private void selectedItem(int position) {
+        int count = getChildCount();
+        if (count < position) return;
+        final View childView = getChildAt(position);
+        if (!(childView instanceof LinearLayout)) return;
+        int count2 = ((LinearLayout) childView).getChildCount();
+        if (count2 != 2) return;
+        ImageView iv = (ImageView) ((LinearLayout) childView).getChildAt(0);
+        TextView tv = (TextView) ((LinearLayout) childView).getChildAt(1);
+        iv.setBackgroundResource(mSelectedResIds[position]);
+        tv.setTextColor(getContext().getResources().getColor(mTextColors[1]));
     }
 
     /**
