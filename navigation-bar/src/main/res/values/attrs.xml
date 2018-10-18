@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="NavigationBar">
+        <!--标题列表，例子：<string-array name="nav_titles"><item>首页</item><item>分类</item></string-array>-->
         <attr name="navTitles" />
+        <!--未选中的图标列表，例子：<array name="normalRes"><item>@drawable/nav_main_normal</item><item>@drawable/nav_category_normal</item></array>-->
         <attr name="navNormalRes" format="reference" />
+        <!--选中的图标，例子：<array name="selectedRes"><item>@drawable/nav_main_selected</item><item>@drawable/nav_category_selected</item></array>-->
         <attr name="navSelectedRes" format="reference" />
+        <!--  文字颜色：选中和未选中,例子：<array name="textColors"><item>@color/colorNavNormal</item><item>@color/colorNavSelected</item></array>-->
         <attr name="navTextColors" format="reference" />
-        <attr name="navTextSize"/>
+        <!--文字大小，默认15sp-->
+        <attr name="navTextSize" />
+        <!--文字和icon垂直方向间距，默认0dp-->
         <attr name="navTextIconSpace" format="dimension|reference" />
+        <!--图片宽度，默认wrap_content-->
+        <attr name="navIconWidth" format="dimension|reference" />
+        <!--图片高度，默认wrap_content-->
+        <attr name="navIconHeight" format="dimension|reference" />
     </declare-styleable>
 </resources>

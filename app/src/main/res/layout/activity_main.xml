@@ -110,16 +110,16 @@
 
     <com.jyl.navbar.NavigationBar
         android:id="@+id/nav_view"
-        android:background="@drawable/nav_divider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/nav_divider"
         android:paddingBottom="4dp"
         android:paddingTop="5dp"
-        app:navTitles="@array/nav_titles"
-        app:navTextIconSpace="2dp"
         app:navNormalRes="@array/normalRes"
         app:navSelectedRes="@array/selectedRes"
+        app:navTextColors="@array/textColors"
+        app:navTextIconSpace="2dp"
         app:navTextSize="12sp"
-        app:navTextColors="@array/textColors"/>
+        app:navTitles="@array/nav_titles" />
 
 </LinearLayout>

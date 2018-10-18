@@ -21,10 +21,12 @@ public class NavigationBar extends LinearLayout {
     private int[] mTextColors;
     private CharSequence[] mTitles;
     private OnNavBarClickListener mListener;
-    private final float DEFAULT_TEXT_ICON_SPACE = 6;
+    private final float DEFAULT_TEXT_ICON_SPACE = 0;
     private final int DEFAULT_TEXT_SIZE = 16;//默认文字大小
     private int mTextIconSpace;
     private int mTextSize;
+    private int mIconWidth;
+    private int mIconHeight;
 
     public NavigationBar(Context context) {
         this(context, null, 0);
@@ -81,6 +83,9 @@ public class NavigationBar extends LinearLayout {
         //文字大小
         mTextSize = a.getDimensionPixelSize(R.styleable.NavigationBar_navTextSize, DEFAULT_TEXT_SIZE);
 
+        //图片宽高
+        mIconWidth = a.getDimensionPixelSize(R.styleable.NavigationBar_navIconWidth, LayoutParams.WRAP_CONTENT);
+        mIconHeight = a.getDimensionPixelSize(R.styleable.NavigationBar_navIconHeight, LayoutParams.WRAP_CONTENT);
 
         colorsTypeArray.recycle();
         normalTypeArray.recycle();
@@ -102,26 +107,22 @@ public class NavigationBar extends LinearLayout {
         this.mSelectedResIds = selectedResIds;
         this.mTextColors = textColors;
         removeAllViews();
-        int padding = dp2px(getContext(), 6);
-//        setPadding(0, padding, 0, 0);
 
         setOrientation(LinearLayout.HORIZONTAL);
         LayoutParams p1 = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-//        p1.setMargins(0, padding, 0, padding);
         setLayoutParams(p1);
         for (int i = 0; i < normalResIds.length; i++) {
+            //Container ImageView and TextView
             LinearLayout item = new LinearLayout(getContext());
             item.setOrientation(LinearLayout.VERTICAL);
             LayoutParams p = new LayoutParams(0, LayoutParams.WRAP_CONTENT, 1.0f);
-//            p.weight = 1;
             p.gravity = Gravity.CENTER;
             item.setLayoutParams(p);
 
-            //add ImageView and TextView
+            //init ImageView and TextView
             ImageView iv = new ImageView(getContext());
-            LayoutParams ivP = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            LayoutParams ivP = new LayoutParams(mIconWidth, mIconHeight);
             ivP.gravity = Gravity.CENTER;
-//            ivP.setMargins(0, padding, 0, 0);
             iv.setLayoutParams(ivP);
             iv.setBackgroundResource(i == 0 ? selectedResIds[0] : normalResIds[i]);
 
@@ -135,9 +136,11 @@ public class NavigationBar extends LinearLayout {
             tvParams.gravity = Gravity.CENTER;
             tv.setLayoutParams(tvParams);
 
+            //add ImageView and TextView
             item.addView(iv);
             item.addView(tv);
 
+            //add to the NavigationBar
             addView(item);
         }
 
@@ -150,7 +153,9 @@ public class NavigationBar extends LinearLayout {
         return (int) (dpValue * scale + 0.5f);
     }
 
-    //设置监听
+    /**
+     * 设置监听
+     */
     private void setListener() {
         int count = getChildCount();
         if (count < 0) return;
@@ -197,6 +202,9 @@ public class NavigationBar extends LinearLayout {
         }
     }
 
+    /**
+     * @param listener
+     */
     public void setOnNavTabClickListener(OnNavBarClickListener listener) {
         this.mListener = listener;
     }
