@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         mNavView.setOnNavTabClickListener(new NavigationBar.OnNavBarClickListener() {
             @Override
             public void onNavBarClick(View view, int position) {
-                mViewpager.setCurrentItem(position);
+                mViewpager.setCurrentItem(position, false);
             }
         });
     }
