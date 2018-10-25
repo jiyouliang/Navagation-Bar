@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FragmentManager {
     private List<Class<? extends Fragment>> fragClassList = Arrays.asList(MainFragment.class, CategoryFragment.class,
-            CartFragment.class, MineFragment.class);
+            SocialFragment.class, CartFragment.class, MineFragment.class);
 
     private FragmentManager() {
     }

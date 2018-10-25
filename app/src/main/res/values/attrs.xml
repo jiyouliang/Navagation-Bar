@@ -6,4 +6,11 @@
         <attr name="navSelectedRes" format="reference" />
         <attr name="navTextColors" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="CategoryGridView">
+        <!--titles-->
+        <attr name="cgvTitles" />
+        <!--resId list-->
+        <attr name="cgvRes" />
+    </declare-styleable>
 </resources>

@@ -18,4 +18,8 @@
         <!--图片高度，默认wrap_content-->
         <attr name="navIconHeight" format="dimension|reference" />
     </declare-styleable>
+
+    <declare-styleable name="DotsView">
+        <attr name="dotCount" format="integer|reference" />
+    </declare-styleable>
 </resources>

@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity implements NavigationBar.OnN
 
     private ViewPager mViewPager;
     private NavigationBar mNavView;
-    private final int[] normalResIds = new int[]{R.drawable.nav_main_normal, R.drawable.nav_cart_normal, R.drawable.nav_cart_normal, R.drawable.nav_mine_normal};
-    private final int[] selectedResIds = new int[]{R.drawable.nav_main_selected, R.drawable.nav_cart_selected, R.drawable.nav_cart_selected, R.drawable.nav_mine_selected};
-    private final String[] titls = new String[]{"首页", "分类", "购物车", "我的"};
-    private int[] textColors = new int[]{R.color.colorNavNormal, R.color.colorNavSelected};
+//    private final int[] normalResIds = new int[]{R.drawable.nav_main_normal, R.drawable.nav_cart_normal, R.drawable.nav_social_unselected, R.drawable.nav_cart_normal, R.drawable.nav_mine_normal};
+//    private final int[] selectedResIds = new int[]{R.drawable.nav_main_selected, R.drawable.nav_cart_selected, R.drawable.nav_social_select, R.drawable.nav_cart_selected, R.drawable.nav_mine_selected};
+//    private final String[] titls = new String[]{"首页", "分类", "盒社群", "购物车", "我的"};
+//    private int[] textColors = new int[]{R.color.colorNavNormal, R.color.colorNavSelected};
 
 
     @Override

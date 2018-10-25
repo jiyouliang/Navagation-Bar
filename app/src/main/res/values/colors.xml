@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorNavSelected">@color/colorPrimary</color>
     <color name="colorNavNormal">#999999</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>

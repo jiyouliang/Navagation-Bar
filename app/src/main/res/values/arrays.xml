@@ -3,12 +3,14 @@
     <string-array name="nav_titles">
         <item>首页</item>
         <item>分类</item>
+        <item>盒社群</item>
         <item>购物车</item>
         <item>我的</item>
     </string-array>
     <array name="normalRes">
         <item>@drawable/nav_main_normal</item>
         <item>@drawable/nav_category_normal</item>
+        <item>@drawable/nav_social_unselected</item>
         <item>@drawable/nav_cart_normal</item>
         <item>@drawable/nav_mine_normal</item>
     </array>
@@ -16,6 +18,7 @@
     <array name="selectedRes">
         <item>@drawable/nav_main_selected</item>
         <item>@drawable/nav_category_selected</item>
+        <item>@drawable/nav_social_select</item>
         <item>@drawable/nav_cart_selected</item>
         <item>@drawable/nav_mine_selected</item>
     </array>
@@ -23,6 +26,32 @@
     <array name="textColors">
         <item>@color/colorNavNormal</item>
         <item>@color/colorNavSelected</item>
+    </array>
+
+
+    <string-array name="gridCateTitles">
+        <item>时令水果</item>
+        <item>新鲜蔬菜</item>
+        <item>肉禽蛋类</item>
+        <item>海鲜水产</item>
+        <item>乳品烘焙</item>
+        <item>餐饮熟食</item>
+        <item>面点冻品</item>
+        <item>休闲零食</item>
+        <item>酒水饮料</item>
+        <item>粮油百货</item>
+    </string-array>
+    <array name="cateRes">
+        <item>@drawable/grid_pro_cate1</item>
+        <item>@drawable/grid_pro_cate2</item>
+        <item>@drawable/grid_pro_cate3</item>
+        <item>@drawable/grid_pro_cate4</item>
+        <item>@drawable/grid_pro_cate5</item>
+        <item>@drawable/grid_pro_cate6</item>
+        <item>@drawable/grid_pro_cate7</item>
+        <item>@drawable/grid_pro_cate8</item>
+        <item>@drawable/grid_pro_cate9</item>
+        <item>@drawable/grid_pro_cate10</item>
     </array>
 
 </resources>

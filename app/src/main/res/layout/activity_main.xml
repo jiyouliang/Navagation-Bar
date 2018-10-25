@@ -119,6 +119,8 @@
         app:navSelectedRes="@array/selectedRes"
         app:navTextColors="@array/textColors"
         app:navTextIconSpace="2dp"
+        app:navIconWidth="26dp"
+        app:navIconHeight="26dp"
         app:navTextSize="12sp"
         app:navTitles="@array/nav_titles" />
 
