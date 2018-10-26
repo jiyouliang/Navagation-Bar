@@ -2,6 +2,7 @@ package com.jiyouliang.freshema.fragment;
 
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +19,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
+import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.jiyouliang.freshema.R;
 import com.jiyouliang.freshema.util.ViewUtil;
@@ -39,6 +42,7 @@ public class MainFragment extends Fragment {
     private int mCurItem = 0;
     private boolean canExecuteTimer = true;
     private DotsView mDotsView;
+    private ViewFlipper mViewFlipper;
 
     public MainFragment() {
         // Required empty public constructor
@@ -50,10 +54,6 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_main, container, false);
-        Toolbar mToolbar = mView.findViewById(R.id.toolbar);
-
-        ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         initView(mView);
@@ -121,9 +121,31 @@ public class MainFragment extends Fragment {
     }
 
     private void initView(View mView) {
+        mViewFlipper = mView.findViewById(R.id.view_flipper);
+        Toolbar mToolbar = mView.findViewById(R.id.toolbar);
         mViewPager = mView.findViewById(R.id.vp_banner);
         mDotsView = mView.findViewById(R.id.dotsView);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(mToolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
 //        mViewPager.setAdapter(new );
+
+        initFlipperAnim();
+    }
+
+    private void initFlipperAnim() {
+        String[] flipperTitlesTip = getResources().getStringArray(R.array.flipperTitlesTip);
+        String[] flipperTitles = getResources().getStringArray(R.array.flipperTitles);
+        TypedArray a = getResources().obtainTypedArray(R.array.flipperRes);
+        for (int i = 0; i < 3; i++) {
+
+            View view = getLayoutInflater().inflate(R.layout.view_flipper_item, null);
+            ((ImageView)view.findViewById(R.id.iv_flip_product)).setBackgroundResource(a.getResourceId(i, R.drawable.flipper1));
+            ((TextView)view.findViewById(R.id.tv_flip_title)).setText(flipperTitles[i]);
+            mViewFlipper.addView(view);
+        }
+        a.recycle();
+//        mViewFlipper.setFlipInterval(200);
+//        mViewFlipper.startFlipping();
     }
 
 

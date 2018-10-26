@@ -53,5 +53,21 @@
         <item>@drawable/grid_pro_cate9</item>
         <item>@drawable/grid_pro_cate10</item>
     </array>
+    <string-array name="flipperTitlesTip">
+        <item>在家做饭</item>
+        <item>河马精选</item>
+        <item>河马精选</item>
+    </string-array>
+
+    <string-array name="flipperTitles">
+        <item>一碗鲜香日式乌冬面，陪你过秋天</item>
+        <item>金枪鱼的滋味，猫和你都想了解~</item>
+        <item>加了花生的全能川味小吃，隔壁小孩馋哭了</item>
+    </string-array>
+    <array name="flipperRes">
+        <item>@drawable/flipper2</item>
+        <item>@drawable/flipper1</item>
+        <item>@drawable/flipper3</item>
+    </array>
 
 </resources>
