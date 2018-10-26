@@ -2,28 +2,31 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_margin="8dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-  <!--  <TextView
+
+    <TextView
         android:id="@+id/tv_flip_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="河马精选"
-        android:textColor="@color/colorNavNormal"
+        android:text="河马精选 | "
+        android:textColor="#676767"
         android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_flip_title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="好吃好吃~"
         android:textColor="@color/colorNavNormal"
-        android:textSize="12sp" />
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_flip_tip"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_flip_product"

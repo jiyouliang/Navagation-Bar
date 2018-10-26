@@ -139,8 +139,9 @@ public class MainFragment extends Fragment {
         for (int i = 0; i < 3; i++) {
 
             View view = getLayoutInflater().inflate(R.layout.view_flipper_item, null);
-            ((ImageView)view.findViewById(R.id.iv_flip_product)).setBackgroundResource(a.getResourceId(i, R.drawable.flipper1));
+            ((TextView)view.findViewById(R.id.tv_flip_tip)).setText(flipperTitlesTip[i]+" | ");
             ((TextView)view.findViewById(R.id.tv_flip_title)).setText(flipperTitles[i]);
+            ((ImageView)view.findViewById(R.id.iv_flip_product)).setBackgroundResource(a.getResourceId(i, R.drawable.flipper1));
             mViewFlipper.addView(view);
         }
         a.recycle();
