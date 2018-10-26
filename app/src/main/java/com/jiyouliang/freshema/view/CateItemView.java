@@ -51,6 +51,7 @@ public class CateItemView extends LinearLayout{
         mTv.setTextColor(getResources().getColor(R.color.colorNavNormal));
         LayoutParams tvParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         mTv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
+        mTv.setGravity(Gravity.CENTER_HORIZONTAL);
         mTv.setLayoutParams(tvParams);
         addView(mTv);
     }
@@ -70,6 +71,7 @@ public class CateItemView extends LinearLayout{
 //        lp.weight = 1;
         int margin = ViewUtil.dp2Pix(getContext(), 4);
         lp.setMargins(margin, 0, margin, 0);
+        setGravity(Gravity.CENTER_HORIZONTAL);
         setLayoutParams(lp);
     }
 

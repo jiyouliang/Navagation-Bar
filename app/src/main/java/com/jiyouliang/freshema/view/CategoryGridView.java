@@ -41,6 +41,7 @@ public class CategoryGridView extends GridView {
         super(context, attrs, defStyleAttr);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         setGravity(Gravity.CENTER);
+
         setNumColumns(NUM_COLUMNS);//列数
         setSelector(new ColorDrawable(Color.TRANSPARENT));
 
