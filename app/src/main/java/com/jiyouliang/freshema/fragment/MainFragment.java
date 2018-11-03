@@ -3,27 +3,23 @@ package com.jiyouliang.freshema.fragment;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.media.Image;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.jiyouliang.freshema.R;
-import com.jiyouliang.freshema.util.ViewUtil;
+import com.jiyouliang.freshema.adapter.MainRecyclerViewAdapter;
 import com.jiyouliang.freshema.view.DotsView;
 
 import java.util.Arrays;
@@ -43,6 +39,7 @@ public class MainFragment extends Fragment {
     private boolean canExecuteTimer = true;
     private DotsView mDotsView;
     private ViewFlipper mViewFlipper;
+    private RecyclerView mRecyclerView;
 
     public MainFragment() {
         // Required empty public constructor
@@ -54,17 +51,27 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_main, container, false);
+        mRecyclerView = mView.findViewById(R.id.rv_main);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(layoutManager);
+        initData();
 
 
-        initView(mView);
+      /*  initView(mView);
         initData();
         setListener();
-        timeSchedule();
+        timeSchedule();*/
 
         return mView;
     }
 
-    private void timeSchedule() {
+    private void initData() {
+        MainRecyclerViewAdapter adapter = new MainRecyclerViewAdapter((AppCompatActivity) getActivity());
+        mRecyclerView.setAdapter(adapter);
+    }
+
+  /*  private void timeSchedule() {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -191,6 +198,6 @@ public class MainFragment extends Fragment {
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
         }
-    }
+    }*/
 
 }

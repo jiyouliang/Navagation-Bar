@@ -1,47 +1,6 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
-    android:orientation="vertical">
-
-    <include layout="@layout/view_main_toolbar" />
-
-    <include layout="@layout/banner_viewpager" />
-
-    <com.jiyouliang.freshema.view.CategoryGridView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
-        android:paddingTop="10dp"
-        app:cgvRes="@array/cateRes"
-        app:cgvTitles="@array/gridCateTitles" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
-        android:padding="10dp">
-
-        <ImageView
-            android:id="@+id/iv_flip_tip"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:layout_centerVertical="true"
-            android:background="@drawable/mouth_head_line" />
-
-        <ViewFlipper
-            android:id="@+id/view_flipper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/iv_flip_tip"
-            android:autoStart="true"
-            android:flipInterval="3000"
-            android:inAnimation="@anim/flipper_in"
-            android:outAnimation="@anim/flipper_out" />
-
-    </RelativeLayout>
-
-</LinearLayout>
+    android:orientation="vertical" />

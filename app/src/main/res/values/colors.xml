@@ -4,7 +4,11 @@
     <color name="colorPrimaryDark">#00AEEE</color>
     <color name="colorBackground">#F5F5F5</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorHorn">#FFFBEE</color>
+
+    <!--TextView color style-->
     <color name="colorNavSelected">@color/colorPrimary</color>
     <color name="colorNavNormal">#999999</color>
-    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTextNormal">#6D6A65</color>
 </resources>
