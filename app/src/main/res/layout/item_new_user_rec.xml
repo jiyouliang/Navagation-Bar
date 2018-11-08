@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:layout_width="match_parent"
+    android:paddingTop="@dimen/padding_size"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_uer_rec"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/new_user_rec_height" />
+
+</LinearLayout>
