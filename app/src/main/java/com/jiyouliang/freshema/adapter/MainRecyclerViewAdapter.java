@@ -4,15 +4,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
 
 import com.jiyouliang.freshema.R;
 import com.jiyouliang.freshema.util.ViewUtil;
@@ -62,17 +59,17 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         } else {
             //新人专享
             NewUserViewHolder newUserViewHolder = (NewUserViewHolder) holder;
-            newUserViewHolder.iv.setBackgroundResource(R.drawable.new_user_rec);
+            newUserViewHolder.getImageView().setBackgroundResource(R.drawable.new_user_rec);
         }
     }
 
     private void bindHeader(HeaderViewHolder holder) {
         HeaderViewHolder headerHolder = holder;
         //ToolBar
-        mActivity.setSupportActionBar(headerHolder.mToolbar);
+        mActivity.setSupportActionBar(headerHolder.getToolbar());
         mActivity.getSupportActionBar().setDisplayShowTitleEnabled(false);
         //ViewPager Banner
-        initViewPagerData(mActivity, headerHolder.mViewPager);
+        initViewPagerData(mActivity, headerHolder.getViewPager());
         setListener(headerHolder);
         initFlipperAnim(mActivity, headerHolder);
     }
@@ -112,44 +109,8 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             ((TextView) view.findViewById(R.id.tv_flip_tip)).setText(flipperTitlesTip[i] + " | ");
             ((TextView) view.findViewById(R.id.tv_flip_title)).setText(flipperTitles[i]);
             ((ImageView) view.findViewById(R.id.iv_flip_product)).setBackgroundResource(a.getResourceId(i, R.drawable.flipper1));
-            holder.mViewFlipper.addView(view);
+            holder.getViewFlipper().addView(view);
         }
         a.recycle();
-//        mViewFlipper.setFlipInterval(200);
-//        mViewFlipper.startFlipping();
-    }
-
-    public static class HeaderViewHolder extends RecyclerView.ViewHolder {
-        private CircleIndicatorViewPager mViewPager;
-        private int mCurItem = 0;
-        private boolean canExecuteTimer = true;
-        private ViewFlipper mViewFlipper;
-        private Toolbar mToolbar;
-
-        public HeaderViewHolder(View itemView) {
-            super(itemView);
-            //初始化view
-
-            mToolbar = itemView.findViewById(R.id.toolbar);
-            mViewPager = itemView.findViewById(R.id.civp_banner);
-            mViewFlipper = itemView.findViewById(R.id.view_flipper);
-
-//        mViewPager.setAdapter(new );
-
-//            initFlipperAnim();
-        }
-    }
-
-    /**
-     * 新人专享
-     */
-    public static class NewUserViewHolder extends RecyclerView.ViewHolder {
-
-        private ImageView iv;
-
-        public NewUserViewHolder(View itemView) {
-            super(itemView);
-            this.iv = itemView.findViewById(R.id.iv_uer_rec);
-        }
     }
 }
