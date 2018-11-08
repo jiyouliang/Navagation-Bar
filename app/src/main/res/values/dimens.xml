@@ -6,4 +6,6 @@
     <dimen name="text_medium_size">16sp</dimen>
     <dimen name="text_normal_size">12sp</dimen>
     <dimen name="text_small_size">10sp</dimen>
+    <dimen name="banner_height">150dp</dimen>
+    <dimen name="banner_indicator_margin">6dp</dimen>
 </resources>

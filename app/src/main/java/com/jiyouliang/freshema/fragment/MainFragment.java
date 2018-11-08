@@ -51,10 +51,7 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_main, container, false);
-        mRecyclerView = mView.findViewById(R.id.rv_main);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(layoutManager);
+        initView();
         initData();
 
 
@@ -64,6 +61,13 @@ public class MainFragment extends Fragment {
         timeSchedule();*/
 
         return mView;
+    }
+
+    private void initView() {
+        mRecyclerView = mView.findViewById(R.id.rv_main);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(layoutManager);
     }
 
     private void initData() {

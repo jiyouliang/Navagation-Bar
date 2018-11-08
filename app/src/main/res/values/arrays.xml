@@ -69,5 +69,9 @@
         <item>@drawable/flipper1</item>
         <item>@drawable/flipper3</item>
     </array>
+    <array name="civpBgList">
+        <item>@drawable/dot_normal</item>
+        <item>@drawable/dot_selected</item>
+    </array>
 
 </resources>

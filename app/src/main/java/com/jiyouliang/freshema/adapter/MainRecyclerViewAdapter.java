@@ -9,12 +9,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.jiyouliang.freshema.R;
+import com.jiyouliang.freshema.util.ViewUtil;
 import com.jiyouliang.freshema.view.DotsView;
+import com.jyl.view.CircleIndicatorViewPager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,8 +29,10 @@ import java.util.List;
 public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int VIEW_TYPE_HEADER = 0;
+    private static final int VIEW_TYPE_NORMAL = 1;
 
     private AppCompatActivity mActivity;
+    private int mWidth;
 
     public MainRecyclerViewAdapter(AppCompatActivity activity) {
         this.mActivity = activity;
@@ -37,12 +42,16 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == VIEW_TYPE_HEADER) {
             View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_main_header, parent, false);
+            int padding = ViewUtil.dp2Pix(parent.getContext(), 20);
+            mWidth = ((WindowManager)parent.getContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth() - padding;
             HeaderViewHolder headerViewHolder = new HeaderViewHolder(itemView);
             return headerViewHolder;
         } else {
             return null;
         }
     }
+
+
 
     //绑定viewHolder,该方法可以设置view数据
     @Override
@@ -70,25 +79,24 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         if (position == 0) {
             return VIEW_TYPE_HEADER;
         } else {
-            return super.getItemViewType(position);
+            return VIEW_TYPE_NORMAL;
         }
     }
 
 
     public static class HeaderViewHolder extends RecyclerView.ViewHolder {
-        private ViewPager mViewPager;
+        private CircleIndicatorViewPager mViewPager;
         private int mCurItem = 0;
         private boolean canExecuteTimer = true;
-        private DotsView mDotsView;
         private ViewFlipper mViewFlipper;
         private Toolbar mToolbar;
 
         public HeaderViewHolder(View itemView) {
             super(itemView);
             //初始化view
+
             mToolbar = itemView.findViewById(R.id.toolbar);
-            mViewPager = itemView.findViewById(R.id.vp_banner);
-            mDotsView = itemView.findViewById(R.id.dotsView);
+            mViewPager = itemView.findViewById(R.id.civp_banner);
             mViewFlipper = itemView.findViewById(R.id.view_flipper);
 
 //        mViewPager.setAdapter(new );
@@ -97,40 +105,14 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         }
     }
 
-    private void initViewPagerData(Context context, ViewPager viewPager) {
+    private void initViewPagerData(Context context, CircleIndicatorViewPager viewPager) {
         List<Integer> datas = Arrays.asList(R.drawable.banner1, R.drawable.banner2, R.drawable.banner3, R.drawable.banner4, R.drawable.banner5);
-        BannerAdapter mAdapter = new BannerAdapter(context, datas);
+        BannerAdapter mAdapter = new BannerAdapter(context, datas, mWidth);
         viewPager.setAdapter(mAdapter);
     }
 
     private void setListener(final HeaderViewHolder holder) {
-        holder.mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                holder.mCurItem = position;
-                System.out.println("onPageSelected,pos=" + position);
-                holder.mDotsView.setCurItem(position % holder.mDotsView.getDotCount());
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                System.out.println("onPageScrollStateChanged");
-                switch (state) {
-                    case ViewPager.SCROLL_STATE_IDLE://停止滑动
-                        holder.canExecuteTimer = true;
-                        break;
-                    case ViewPager.SCROLL_STATE_DRAGGING://正在滑动中
-                        holder.canExecuteTimer = false;
-                        break;
-                }
-            }
-        });
     }
 
     private void initFlipperAnim(Context context, HeaderViewHolder holder) {
