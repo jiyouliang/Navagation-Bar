@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dot_size">6dp</dimen>
-    <dimen name="padding_size">10dp</dimen>
+    <dimen name="padding_size">8dp</dimen>
     <dimen name="text_large_size">18sp</dimen>
     <dimen name="text_medium_size">16sp</dimen>
     <dimen name="text_normal_size">12sp</dimen>
@@ -9,4 +9,6 @@
     <dimen name="banner_height">150dp</dimen>
     <dimen name="banner_indicator_margin">6dp</dimen>
     <dimen name="new_user_rec_height">120dp</dimen>
+    <dimen name="hot_buy_title_max_width">170dp</dimen>
+    <dimen name="chs_expired_time_size">12sp</dimen>
 </resources>

@@ -73,5 +73,59 @@
         <item>@drawable/dot_normal</item>
         <item>@drawable/dot_selected</item>
     </array>
+    <string-array name="hotBuyTitles">
+        <item>[2件5折]厄瓜多尔白虾 400g</item>
+        <item>山东沾化冬枣750g</item>
+        <item>西番多甜心番茄 450g/盒</item>
+        <item>新疆苹果4粒装800g</item>
+        <item>天农高原谷香鸡蛋10枚</item>
+    </string-array>
+
+    <string-array name="hotBuySubTitles">
+        <item>生态养殖，全程冷链，虾壳锃亮，肉质饱满</item>
+        <item>皮薄核小，畅享厚厚果肉；鲜甜爽口，闻着香，吃着脆。</item>
+        <item>亦蔬亦果，口口爆汁清甜；番茄红素含量高，低热量，营养健康；尤其适合制作健身餐</item>
+        <item>霜降期前后采摘，昼夜高温差造就甘甜美味；当季新果，色泽艳丽，爽脆细腻。</item>
+        <item>贵州黔南国家地理标志保护产品</item>
+    </string-array>
+    <string-array name="hotBuyAttr1">
+        <item>鲜嫩弹牙</item>
+        <item>新鲜美味</item>
+        <item>汁水充足</item>
+        <item>果香浓郁</item>
+        <item>高原瑶鸡</item>
+    </string-array>
+
+    <string-array name="hotBuySubAttr1">
+        <item>口感</item>
+        <item>果型匀称</item>
+        <item>果味浓郁</item>
+        <item>果型圆润</item>
+        <item>产蛋鸡种</item>
+    </string-array>
+
+    <string-array name="hotBuyAttr2">
+        <item>味道鲜美</item>
+        <item>脆甜爽口</item>
+        <item>粒粒均匀</item>
+        <item>脆甜爽口</item>
+        <item>自然醇香</item>
+    </string-array>
+
+    <string-array name="hotBuySubAttr2">
+        <item>味道</item>
+        <item>皮薄无渣</item>
+        <item>清甜爽口</item>
+        <item>汁水充足</item>
+        <item>口感风味</item>
+    </string-array>
+
+    <string-array name="hotBurPrices">
+        <item>¥39.90</item>
+        <item>¥9.90</item>
+        <item>¥9.90</item>
+        <item>¥9.90</item>
+        <item>¥9.90</item>
+    </string-array>
 
 </resources>

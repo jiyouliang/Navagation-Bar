@@ -28,6 +28,7 @@ import java.util.List;
 
 public class CategoryGridView extends GridView {
     private static final int NUM_COLUMNS = 5;
+    private CharSequence[] mTitles;
 
     public CategoryGridView(Context context) {
         this(context, null);
@@ -49,10 +50,10 @@ public class CategoryGridView extends GridView {
         List<CateInfo> data = new ArrayList<CateInfo>();
 
         //titles
-        CharSequence[] titles = a.getTextArray(R.styleable.CategoryGridView_cgvTitles);
-        for (int i = 0; i < titles.length; i++) {
+        mTitles = a.getTextArray(R.styleable.CategoryGridView_cgvTitles);
+        for (int i = 0; i < mTitles.length; i++) {
             CateInfo cate = new CateInfo();
-            cate.setTitle(titles[i].toString());
+            cate.setTitle(mTitles[i].toString());
             data.add(cate);
         }
 
@@ -92,7 +93,7 @@ public class CategoryGridView extends GridView {
         @Override
         public int getCount() {
 //            return super.getCount();
-            return 10;
+            return mData.size();
         }
 
         @NonNull
@@ -120,4 +121,20 @@ public class CategoryGridView extends GridView {
             TextView tvTitle;
         }
     }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+        int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,
+                MeasureSpec.AT_MOST);
+        super.onMeasure(widthMeasureSpec, expandSpec);
+
+    }
+
+    //RecyclerView嵌套GridView只显示一行
+    @Override
+    public int getNumColumns() {
+        return 2;
+    }
+
 }

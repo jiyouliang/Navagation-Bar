@@ -11,4 +11,9 @@
     <color name="colorNavSelected">@color/colorPrimary</color>
     <color name="colorNavNormal">#999999</color>
     <color name="colorTextNormal">#6D6A65</color>
+
+
+    <!--hot buy-->
+    <color name="hotBuyTitle">#7A7A7A</color>
+    <color name="hotBuySubTitle">#B9B9B9</color>
 </resources>
