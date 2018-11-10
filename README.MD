@@ -9,7 +9,7 @@
 
 
 
-![](screenshot2.gif)
+![](screenshot3.gif)
 
 
 
