@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="toolBarHeight">50dp</dimen>
     <dimen name="dot_size">6dp</dimen>
     <dimen name="padding_size">8dp</dimen>
     <dimen name="text_large_size">18sp</dimen>

@@ -1,13 +1,10 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_cate"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.jiyouliang.freshema.fragment.CategoryFragment">
+    android:paddingRight="10dp"
+    android:background="@color/colorWhite"
+    android:layout_height="match_parent" />
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="分类" />
 
-</FrameLayout>
+
+
